@@ -39,6 +39,7 @@ void loop( )
     //Serial.println("DATO: ");
     Serial.println(DATO);
     switch (DATO) {
+      // Iniciar arduino con boton start
       case 'S':
       digitalWrite(DIRA,HIGH); //counter-clock-wise
       digitalWrite(DIRB,LOW);
@@ -54,6 +55,7 @@ void loop( )
       }
       break;
 
+      // aumentar velociadad del motor
       case 'u':
       if (stateMotor == 1)
       {
@@ -97,14 +99,14 @@ void loop( )
         if (speedMotor <= -255 ){
           speedMotor = -255;
         }
+        digitalWrite(DIRA,HIGH); //counter-clock-wise
+        digitalWrite(DIRB,LOW);
         if (-255 < speedMotor < 0){
           digitalWrite(ENABLE,LOW);
           delay(2000);
           digitalWrite(DIRA,LOW); //clock-wise
           digitalWrite(DIRB,HIGH);
         }
-        digitalWrite(DIRA,HIGH); //counter-clock-wise
-        digitalWrite(DIRB,LOW);
         analogWrite(ENABLE,speedMotor);      
       }
       break;  
@@ -115,10 +117,7 @@ void loop( )
     Serial.print("Velocidad: ");
     Serial.println(speedMotor);
     
-    } 
+    }
+} 
   
-  /*
-  if (Serial.available())
-  BT.write(Serial.read()); //lee Arduino y envia a BT
-  */
-}
+  
