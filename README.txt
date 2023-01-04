@@ -7,4 +7,4 @@ Pasos
 	- git clone https://github.com/LuisMendozaCOL/Barco.git
 5-Cambiar el puerto en el código a usar: ejemplo COM3, COM7
 6-Instalar librería Johnny-five usando el CMD - http://johnny-five.io/
-	-npm install johnny-five
+	-npm instaSll johnny-five
