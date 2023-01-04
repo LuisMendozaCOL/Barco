@@ -1,9 +1,10 @@
 Pasos
 
 1-Instalar node v12.22.9.
-2-Instalar Arduino -  https://www.arduino.cc/en/software
-3-Clonar repositorio
+2-Instalar nodemon
+3-Instalar Arduino -  https://www.arduino.cc/en/software
+4-Clonar repositorio
 	- git clone https://github.com/LuisMendozaCOL/Barco.git
-4-Cambiar el puerto en el código a usar: ejemplo COM3, COM7
-5-Instalar librería Johnny-five usando el CMD - http://johnny-five.io/
+5-Cambiar el puerto en el código a usar: ejemplo COM3, COM7
+6-Instalar librería Johnny-five usando el CMD - http://johnny-five.io/
 	-npm install johnny-five
