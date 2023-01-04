@@ -8,7 +8,7 @@ the L293D chip
 
 int ENABLE = 11;
 int DIRA = 12;
-int DIRB = 13;
+int DIRB = 10;
 int speedMotor = 0 ;
 
 int i;
@@ -40,11 +40,10 @@ void loop() {
 */
   Serial.println("fast Slow example");
   //---fast/slow stop example
-  Serial.println("counter clock wise");
+  Serial.println("clock wise");
   digitalWrite(DIRA,HIGH); //one way
   digitalWrite(DIRB,LOW);
   digitalWrite(ENABLE,HIGH); //enable on
-
   delay(5000);
 
   Serial.println("slow stop");
@@ -52,13 +51,16 @@ void loop() {
   
   delay(3000);
 
-  Serial.println("clock wise");
+  Serial.println("counter clock wise");
   digitalWrite(DIRA,LOW); //one way
   digitalWrite(DIRB,HIGH);
   digitalWrite(ENABLE,HIGH); //enable on
   delay(5000);
 
-
+  Serial.println("slow stop");
+  digitalWrite(ENABLE,LOW); //slow stop
+  
+  // delay(3000);
 
 /*
   Serial.println("PWM full then slow");

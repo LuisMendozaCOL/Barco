@@ -61,8 +61,9 @@ void loop( )
       {
         speedMotor+= 30;
         if (-255 < speedMotor < 0){
-          //digitalWrite(ENABLE,LOW);
-          //delay(2000);
+          digitalWrite(ENABLE,LOW);
+          delay(2000);
+          
           digitalWrite(DIRA,LOW); //clock-wise
           digitalWrite(DIRB,HIGH);
         }
@@ -71,6 +72,9 @@ void loop( )
           if (speedMotor >= 255 ){
             speedMotor = 255;
           }
+          digitalWrite(ENABLE,LOW);
+          delay(2000);
+          
           digitalWrite(DIRA,HIGH); //counter-clock-wise
           digitalWrite(DIRB,LOW);
         }
@@ -81,29 +85,17 @@ void loop( )
       case 'd':
       if (stateMotor == 1){
         speedMotor-= 30;
-      /*  if (255 < speedMotor < 0){
-          //digitalWrite(ENABLE,LOW);
-          //delay(2000);
-          digitalWrite(DIRA,HIGH); //counterclock-wise
-          digitalWrite(DIRB,LOW);
-        }
-        else
-        {
-          if (speedMotor <= -255 ){
-            speedMotor = -255;
-          }
-          digitalWrite(DIRA,LOW); //clock-wise
-          digitalWrite(DIRB,HIGH);
-        }
-*/
         if (speedMotor <= -255 ){
           speedMotor = -255;
         }
-        digitalWrite(DIRA,HIGH); //counter-clock-wise
-        digitalWrite(DIRB,LOW);
+        //digitalWrite(ENABLE,LOW);
+        //delay(2000);
+        //digitalWrite(DIRA,LOW); //counter-clock-wise
+        //digitalWrite(DIRB,HIGH);
         if (-255 < speedMotor < 0){
           digitalWrite(ENABLE,LOW);
           delay(2000);
+          
           digitalWrite(DIRA,LOW); //clock-wise
           digitalWrite(DIRB,HIGH);
         }
