@@ -1,3 +1,4 @@
+
 class Vaca:
     def __init__(self, puerto, años) -> None:
         self.puerto = puerto
@@ -12,3 +13,4 @@ a.decirEdad()
 
 b = Vaca(7, 10)
 b.decirEdad()
+/
