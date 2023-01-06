@@ -7,9 +7,9 @@ char DATO;
 //int LEDVERDE = 2;
 
 //variable - Motor
-int ENABLE = 11;
-int DIRA = 12;
-int DIRB = 13;
+int ENABLE = 13;
+int DIRA = 6;
+int DIRB = 3;
 int speedMotor = 0 ;
 int stateMotor = 0 ;
 
@@ -18,10 +18,8 @@ int stateMotor = 0 ;
  */
 void setup() {
 
-  Serial.begin(38400);
+  Serial.begin(9600);
   Serial.println("Arduino Iniciado");
-  Serial2.begin(9600);
-  Serial.println("BT Iniciado");
   //pinMode(LEDROJO, OUTPUT);
   //pinMode(LEDVERDE, OUTPUT);
   pinMode(ENABLE,OUTPUT);
@@ -33,9 +31,9 @@ void setup() {
 void loop( )
 {
   // Bluetooth
-  if (Serial2.available()) {
+  if (Serial.available()) {
     Serial.print("Received: ");
-    DATO = Serial2.read();
+    DATO = Serial.read();
     //Serial.println("DATO: ");
     Serial.println(DATO);
     switch (DATO) {
@@ -61,16 +59,19 @@ void loop( )
       {
         speedMotor+= 30;
         if (-255 < speedMotor < 0){
-          //digitalWrite(ENABLE,LOW);
-          //delay(2000);
+          digitalWrite(ENABLE,LOW);
+          delay(50);
           digitalWrite(DIRA,LOW); //clock-wise
           digitalWrite(DIRB,HIGH);
+          delay(8000)
         }
         else
         {
           if (speedMotor >= 255 ){
             speedMotor = 255;
           }
+          digitalWrite(ENABLE,LOW);
+          delay(50);
           digitalWrite(DIRA,HIGH); //counter-clock-wise
           digitalWrite(DIRB,LOW);
         }
@@ -99,13 +100,12 @@ void loop( )
         if (speedMotor <= -255 ){
           speedMotor = -255;
         }
-        digitalWrite(DIRA,HIGH); //counter-clock-wise
-        digitalWrite(DIRB,LOW);
         if (-255 < speedMotor < 0){
           digitalWrite(ENABLE,LOW);
-          delay(2000);
+          delay(50);
           digitalWrite(DIRA,LOW); //clock-wise
           digitalWrite(DIRB,HIGH);
+          delay(8000)
         }
         analogWrite(ENABLE,speedMotor);      
       }

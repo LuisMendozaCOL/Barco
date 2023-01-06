@@ -41,9 +41,9 @@ void loop() {
   Serial.println("fast Slow example");
   //---fast/slow stop example
   Serial.println("counter clock wise");
+  digitalWrite(ENABLE,HIGH); //enable on
   digitalWrite(DIRA,HIGH); //one way
   digitalWrite(DIRB,LOW);
-  digitalWrite(ENABLE,HIGH); //enable on
 
   delay(5000);
 
@@ -53,9 +53,9 @@ void loop() {
   delay(3000);
 
   Serial.println("clock wise");
+  digitalWrite(ENABLE,HIGH); //enable on
   digitalWrite(DIRA,LOW); //one way
   digitalWrite(DIRB,HIGH);
-  digitalWrite(ENABLE,HIGH); //enable on
   delay(5000);
 
 

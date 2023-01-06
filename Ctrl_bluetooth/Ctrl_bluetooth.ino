@@ -11,10 +11,8 @@ int LEDVERDE = 2;
  */
 void setup() {
 
-  Serial.begin(38400);
+  Serial.begin(9600);
   Serial.println("Arduino Iniciado");
-  Serial2.begin(9600);
-  Serial.println("BT Iniciado");
   pinMode(LEDROJO, OUTPUT);
   pinMode(LEDVERDE, OUTPUT);
 }
@@ -23,9 +21,9 @@ void setup() {
 void loop( )
 {
   // Bluetooth
-  if (Serial2.available()) {
+  if (Serial.available()) {
     Serial.print("Received: ");
-    DATO = Serial2.read();
+    DATO = Serial.read();
     Serial.println(DATO);
   }
 
