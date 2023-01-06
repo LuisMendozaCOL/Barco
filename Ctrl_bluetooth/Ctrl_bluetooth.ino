@@ -3,8 +3,8 @@
 
 #include <SoftwareSerial.h>
 char DATO;
-int LEDROJO = 3;
-int LEDVERDE = 2;
+//int LEDROJO = 3;
+//int LEDVERDE = 2;
 
 /*
  * Initialize the serial port.
@@ -15,12 +15,12 @@ void setup() {
   Serial.println("Arduino Iniciado");
   Serial2.begin(9600);
   Serial.println("BT Iniciado");
-  pinMode(LEDROJO, OUTPUT);
-  pinMode(LEDVERDE, OUTPUT);
+  //pinMode(LEDROJO, OUTPUT);
+  //pinMode(LEDVERDE, OUTPUT);
 }
 
 
-void loop( )
+void loop()
 {
   // Bluetooth
   if (Serial2.available()) {
@@ -28,8 +28,8 @@ void loop( )
     DATO = Serial2.read();
     Serial.println(DATO);
   }
-
-   switch (DATO) {
+/*
+   switch (DATO){
     case '1':
     digitalWrite(LEDROJO, HIGH);
     break;
@@ -43,9 +43,9 @@ void loop( )
     digitalWrite(LEDVERDE, LOW);
     break;
   }
- 
+ */
   
-  
+                              
   /*
   if (Serial.available())
   BT.write(Serial.read()); //lee Arduino y envia a BT

@@ -1,3 +1,4 @@
+
 //www.elegoo.com
 //2018.10.25
 
@@ -39,6 +40,7 @@ void loop( )
     //Serial.println("DATO: ");
     Serial.println(DATO);
     switch (DATO) {
+      // Iniciar arduino con boton start
       case 'S':
       digitalWrite(DIRA,HIGH); //counter-clock-wise
       digitalWrite(DIRB,LOW);
@@ -53,14 +55,15 @@ void loop( )
         analogWrite(ENABLE,speedMotor);      
       }
       break;
-
+      // aumentar velociadad del motor
       case 'u':
       if (stateMotor == 1)
       {
         speedMotor+= 30;
         if (-255 < speedMotor < 0){
-          //digitalWrite(ENABLE,LOW);
-          //delay(2000);
+          digitalWrite(ENABLE,LOW);
+          delay(2000);
+          
           digitalWrite(DIRA,LOW); //clock-wise
           digitalWrite(DIRB,HIGH);
         }
@@ -69,6 +72,9 @@ void loop( )
           if (speedMotor >= 255 ){
             speedMotor = 255;
           }
+          digitalWrite(ENABLE,LOW);
+          delay(2000);
+          
           digitalWrite(DIRA,HIGH); //counter-clock-wise
           digitalWrite(DIRB,LOW);
         }
@@ -77,19 +83,20 @@ void loop( )
       break;
       
       case 'd':
-      if (stateMotor == 1){
+      if (stateMotor == 1)
+      {
         speedMotor-= 30;
-        if (255 < speedMotor < 0){
-          //digitalWrite(ENABLE,LOW);
-          //delay(2000);
-          digitalWrite(DIRA,HIGH); //counter-clock-wise
-          digitalWrite(DIRB,LOW);
+        if (speedMotor <= -255 ){
+          speedMotor = -255;
         }
-        else
-        {
-          if (speedMotor <= -255 ){
-            speedMotor = -255;
-          }
+        //digitalWrite(ENABLE,LOW);
+        //delay(2000);
+        //digitalWrite(DIRA,LOW); //counter-clock-wise
+        //digitalWrite(DIRB,HIGH);
+        if (-255 < speedMotor < 0){
+          digitalWrite(ENABLE,LOW);
+          delay(2000);
+          
           digitalWrite(DIRA,LOW); //clock-wise
           digitalWrite(DIRB,HIGH);
         }
@@ -101,12 +108,9 @@ void loop( )
     Serial.print("Estado: ");
     Serial.println(stateMotor);
     Serial.print("Velocidad: ");
-    Serial.println(speedMotor);
-    
-    } 
+    Serial.println(speedMotor); 
+  }
+
+} 
   
-  /*
-  if (Serial.available())
-  BT.write(Serial.read()); //lee Arduino y envia a BT
-  */
-}
+  
