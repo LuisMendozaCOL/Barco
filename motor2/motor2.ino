@@ -1,3 +1,4 @@
+
 //www.elegoo.com
 //2018.10.25
 
@@ -54,7 +55,6 @@ void loop( )
         analogWrite(ENABLE,speedMotor);      
       }
       break;
-
       // aumentar velociadad del motor
       case 'u':
       if (stateMotor == 1)
@@ -72,8 +72,8 @@ void loop( )
           if (speedMotor >= 255 ){
             speedMotor = 255;
           }
-          digitalWrite(ENABLE,LOW);
-          delay(2000);
+          //digitalWrite(ENABLE,LOW);
+          //delay(2000);
           
           digitalWrite(DIRA,HIGH); //counter-clock-wise
           digitalWrite(DIRB,LOW);
