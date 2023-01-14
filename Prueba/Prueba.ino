@@ -2,7 +2,7 @@ int nd=6;
 int ni=3;
 int i;
 int ENABLE=13;
-
+//cambio
 void setup() {
   pinMode(nd, OUTPUT);
   pinMode(ni, OUTPUT);
